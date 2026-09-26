@@ -1,0 +1,27 @@
+name: Github Actions Demo
+run-name: ${{ github.actor }} is testing out Github Actions
+on: push
+
+jobs:
+  build-deploy-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the Repository
+        run: echo "checkout the reposotory code."
+        
+      - name: Build the app
+        run: echo "Building the app"
+
+      - name: Testing the app
+        run: echo "Testing the app"
+
+      - name: Build Docker Image
+        run: echo "build the image."
+    
+      - name: Push to DockerHub
+        run: echo "pushing the image to docker hub."
+
+      - name: Deploy
+        run: echo "Deploy the app on kubernetes."
+
+        
