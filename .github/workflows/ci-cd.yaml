@@ -1,14 +1,23 @@
 name: Github Actions Demo
 run-name: ${{ github.actor }} is testing out Github Actions
-on: push
+on: 
+  - push
+  - pull_request
+  - workflow_dispatch
 
 jobs:
   build-deploy-app:
     runs-on: ubuntu-latest
     steps:
+      - name: Print Trigger Namme
+        run: echo "Trigger name ${{ github.event_name }}"
+
       - name: Checkout the Repository
-        run: echo "checkout the reposotory code."
+        uses: actions/checkout@v7
         
+      - name: List Repo Files
+        run: ls
+
       - name: Build the app
         run: echo "Building the app"
 
